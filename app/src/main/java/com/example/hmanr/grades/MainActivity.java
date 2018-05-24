@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 String user="fede";
                 String pass="1234";
                 if(user.equals(euser.getText().toString()) && pass.equals(epass.getText().toString())){
-                    Intent intent=new Intent(getApplicationContext(),Menu.class);
+                    Intent intent=new Intent(getApplicationContext(),MenuCiclos.class);
                     startActivity(intent);
                     finish();
                 }

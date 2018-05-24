@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Menu extends AppCompatActivity {
+public class MenuCiclos extends AppCompatActivity {
     TextView text;
 
     @Override
