@@ -26,7 +26,7 @@ public class MenuMateria extends AppCompatActivity {
         setContentView(R.layout.recycler_menu_materia);
 
         //Menu desplegable
-        mDrawerLayout = findViewById(R.id.drawer_menu);
+        mDrawerLayout = findViewById(R.id.drawer_materia);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -35,6 +35,8 @@ public class MenuMateria extends AppCompatActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+
         LinearLayoutManager lManager;
         lManager = new LinearLayoutManager(this);
         rv=(RecyclerView)(findViewById(R.id.recycler_materias));
