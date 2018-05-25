@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class MenuMateria extends AppCompatActivity {
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     RecyclerView rv;
     MateriasAdapter matAdapter;
@@ -23,18 +22,18 @@ public class MenuMateria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycler_menu_materia);
+        setContentView(R.layout.activity_drawer_materias);
 
         //Menu desplegable
-        mDrawerLayout = findViewById(R.id.drawer_materia);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_materia);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
 
         mDrawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
-
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        mToggle.syncState();
+
 
 
         LinearLayoutManager lManager;
@@ -59,9 +58,6 @@ public class MenuMateria extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item)||mToggle.onOptionsItemSelected(item);
     }
 }

@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MenuCiclos extends AppCompatActivity {
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     TextView text;
 
@@ -21,7 +20,7 @@ public class MenuCiclos extends AppCompatActivity {
         setContentView(R.layout.activity_drawer_menu);
 
         //Menu desplegable
-        mDrawerLayout = findViewById(R.id.drawer_menu);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_menu);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -34,16 +33,16 @@ public class MenuCiclos extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item)||mToggle.onOptionsItemSelected(item);
     }
 
     public void onClick(View v){
+        Intent intent;
         switch (v.getId()){
             case R.id.m1:
                 Toast.makeText(this, "Ciclo 1", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
             case R.id.m2:
                 Toast.makeText(this, "Ciclo 2", Toast.LENGTH_SHORT).show();
