@@ -26,10 +26,8 @@ public class MenuCiclos extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-        try {
+        if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }catch (Exception e){
-            e.printStackTrace();
         }
 
     }

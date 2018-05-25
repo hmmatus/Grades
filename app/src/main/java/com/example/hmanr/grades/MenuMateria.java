@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class MenuMateria extends AppCompatActivity {
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
     RecyclerView rv;
     MateriasAdapter matAdapter;
     ArrayList<Materia> materias = new ArrayList<>();
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +31,9 @@ public class MenuMateria extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-        try {
+
+        if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }catch (Exception e){
-            e.printStackTrace();
         }
         LinearLayoutManager lManager;
         lManager = new LinearLayoutManager(this);
