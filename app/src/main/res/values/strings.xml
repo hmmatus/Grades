@@ -2,4 +2,7 @@
     <string name="app_name">Grades</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="u">Universidad Dr. Jose Matias Delgado</string>
+    <string name="estudiante">Federico Abarca</string>
+    <string name="carrera">Ing. en Sistemas</string>
 </resources>
