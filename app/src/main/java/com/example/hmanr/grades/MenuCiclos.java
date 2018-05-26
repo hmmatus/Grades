@@ -1,8 +1,10 @@
 package com.example.hmanr.grades;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,8 +37,12 @@ public class MenuCiclos extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item)||mToggle.onOptionsItemSelected(item);
     }
-
-    public void onClick(View v){
+    public View cerrarSesion(View v) {
+        Intent cerrar=new Intent(this,MainActivity.class);
+        startActivity(cerrar);
+        return v;
+    }
+    public View onClick(View v){
         Intent intent;
         switch (v.getId()){
             case R.id.m1:
@@ -46,19 +52,30 @@ public class MenuCiclos extends AppCompatActivity {
                 break;
             case R.id.m2:
                 Toast.makeText(this, "Ciclo 2", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
             case R.id.m3:
                 Toast.makeText(this, "Ciclo 3", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
             case R.id.m4:
                 Toast.makeText(this, "Ciclo 4", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
             case R.id.m5:
                 Toast.makeText(this, "Ciclo 5", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
             case R.id.m6:
                 Toast.makeText(this, "Ciclo 6", Toast.LENGTH_SHORT).show();
+                intent=new Intent(this,MenuMateria.class);
+                startActivity(intent);
                 break;
         }
+        return v;
     }
 }

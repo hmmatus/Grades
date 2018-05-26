@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/cardview_notas"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="2dp"
+        android:stretchColumns="1">
+
+
+        <TableRow android:background="@drawable/border_style_materias">
+            <TextView
+                android:text="PARCIAL 1"
+                android:id="@+id/notas_nombre_actividad"
+                android:layout_gravity="center"
+                android:padding="10dip" />
+            <TextView
+                android:text="7.85"
+                android:id="@+id/notas_valor_nota"
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:padding="10dip" />
+        </TableRow>
+
+    </TableLayout>
+</android.support.v7.widget.CardView>
