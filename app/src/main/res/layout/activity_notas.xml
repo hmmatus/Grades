@@ -20,7 +20,7 @@
         />
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="2dp"
@@ -28,11 +28,13 @@
         <TableRow android:background="@drawable/border_style_materias">
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="ACTIVIDAD"
                 android:layout_gravity="center"
                 android:padding="10dip" />
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="NOTA"
                 android:layout_gravity="center"
                 android:gravity="right"
@@ -40,12 +42,15 @@
         </TableRow>
 
     </TableLayout>
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_notas"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-</android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recycler_notas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="true">
+
+    </android.support.v7.widget.RecyclerView>
 </android.support.v7.widget.LinearLayoutCompat>
 
 
