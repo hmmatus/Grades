@@ -1,5 +1,8 @@
 package com.example.hmanr.grades;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +31,27 @@ public class MenuMateria extends AppCompatActivity {
         //Menu desplegable
         DrawerLayout mDrawerLayout = findViewById(R.id.drawer_materia);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
+
+        NavigationView nav = findViewById(R.id.nav_materia);
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id=item.getItemId();
+                Intent intent;
+                switch (id){
+                    case  R.id.account:
+                        break;
+                    case R.id.settings:
+                        break;
+                    case R.id.logout:
+                        intent =new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
+                        break;
+
+                }
+                return false;
+            }
+        });
 
         mDrawerLayout.addDrawerListener(mToggle);
         if(getSupportActionBar() != null){
