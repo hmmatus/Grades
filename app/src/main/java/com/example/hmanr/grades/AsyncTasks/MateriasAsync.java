@@ -12,6 +12,10 @@ import android.widget.Toast;
 import com.example.hmanr.grades.Adapter.MateriasAdapter;
 import com.example.hmanr.grades.Classes.Materia;
 import com.example.hmanr.grades.MainMenu;
+import com.example.hmanr.grades.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -28,9 +32,9 @@ public class MateriasAsync extends AsyncTask<String,String,String> {
     MateriasAdapter materiasAdapter;
     RecyclerView recyclerView;
 
-    ArrayList<Materia> materias;
+    ArrayList<Materia> materias = new ArrayList<>();
     ProgressBar progressBar;
-
+    String url ="http://sales-app-com.stackstaging.com/WebServlet/materias.php";
     String response;
 
 
@@ -43,6 +47,11 @@ public class MateriasAsync extends AsyncTask<String,String,String> {
     @Override
     protected String doInBackground(String... voids) {
         //result=getInfoWeb("");
+        try {
+            response=getInfoWeb(url);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -53,6 +62,11 @@ public class MateriasAsync extends AsyncTask<String,String,String> {
             context.startActivity(intent);
             Toast.makeText(context, "Se produjo un error de conexion., intente de nuevo mas tarde.", Toast.LENGTH_SHORT).show();
             ((Activity)context).finish();
+        }
+        try {
+            setMateriaShop(response);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -65,7 +79,6 @@ public class MateriasAsync extends AsyncTask<String,String,String> {
         int respuesta = 0;
         String exit = "";
         try {
-            // Log.d(TAG, "getInfoWeb: "+uri+"");
             HttpURLConnection httpCon = (HttpURLConnection) uri.openConnection();
             httpCon.setReadTimeout(20000);
             httpCon.setConnectTimeout(20000);
@@ -86,5 +99,20 @@ public class MateriasAsync extends AsyncTask<String,String,String> {
             e.printStackTrace();
         }
         return exit;
+    }
+    public void setMateriaShop(String jsonCad) throws JSONException {
+        JSONArray jsonArr=new JSONArray(jsonCad);
+        for (int i=0;i<jsonArr.length();i++){
+            materias.add(new Materia(
+                    jsonArr.getJSONObject(i).getString("codigo"),
+                    jsonArr.getJSONObject(i).getString("nombre"),
+                    jsonArr.getJSONObject(i).getString("abreviatura"),
+                    jsonArr.getJSONObject(i).getString("uv")
+
+            ));
+        }
+        materiasAdapter = new MateriasAdapter(materias,context, R.layout.recycler_menu_materia);
+        recyclerView.setAdapter(materiasAdapter);
+
     }
     }

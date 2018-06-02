@@ -1,14 +1,14 @@
 package com.example.hmanr.grades.Classes;
 
 public class Materia {
-    int idMat;
+    String idMat;
     String nombreMat, abrevMat,cantUvMat;
 
-    public int getIdMat() {
+    public String getIdMat() {
         return idMat;
     }
 
-    public void setIdMat(int idMat) {
+    public void setIdMat(String idMat) {
         this.idMat = idMat;
     }
 
@@ -36,7 +36,7 @@ public class Materia {
         this.cantUvMat = cantUvMat;
     }
 
-    public Materia(int idMat, String nombreMat, String abrevMat, String cantUvMat) {
+    public Materia(String idMat, String nombreMat, String abrevMat, String cantUvMat) {
         this.idMat = idMat;
         this.nombreMat = nombreMat;
         this.abrevMat = abrevMat;

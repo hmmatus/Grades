@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.hmanr.grades.Adapter.MateriasAdapter;
+import com.example.hmanr.grades.AsyncTasks.MateriasAsync;
 import com.example.hmanr.grades.Classes.Materia;
 
 import java.util.ArrayList;
@@ -59,14 +60,18 @@ public class MenuMateria extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         mToggle.syncState();
-
-
-
         LinearLayoutManager lManager;
         lManager = new LinearLayoutManager(this);
         rv=(RecyclerView)(findViewById(R.id.recycler_materias));
         rv.setLayoutManager(lManager);
-        Materia a= new Materia(1,"Matemática 1", "Mat1", "5UV");
+        try {
+            new MateriasAsync(this, rv,matAdapter).execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+       /* Materia a= new Materia(1,"Matemática 1", "Mat1", "5UV");
         Materia b= new Materia(2,"Fisica 1", "Fis1", "4UV");
         Materia c= new Materia(3,"Psicologia Social", "PsiS", "3UV");
         Materia d= new Materia(4,"Matemática 2", "Mat2", "5UV");
@@ -77,7 +82,7 @@ public class MenuMateria extends AppCompatActivity {
         materias.add(d);
         materias.add(e);
         matAdapter = new MateriasAdapter(materias,this, R.id.recycler_materias);
-        rv.setAdapter(matAdapter);
+        rv.setAdapter(matAdapter);*/
     }
 
     @Override
