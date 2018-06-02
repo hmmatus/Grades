@@ -1,30 +1,38 @@
 package com.example.hmanr.grades.Classes;
 
 public class Alumno {
-    private int idAlumno;
+    private String idAlumno;
     private String nombre;
     private String fechab;
     private String correo;
-    private int idUsuario;
+    private String idUsuario;
+    private String claveUsuario;
 
     //Constructor
-    public Alumno(int idAlumno, String nombre, String fechab, String correo, int idUsuario) {
+    public Alumno(String idAlumno, String nombre, String fechab, String correo, String idUsuario) {
         this.idAlumno = idAlumno;
         this.nombre = nombre;
         this.fechab = fechab;
         this.correo = correo;
         this.idUsuario = idUsuario;
     }
+
+    public Alumno(String idAlumno, String idUsuario, String claveUsuario) {
+        this.idAlumno = idAlumno;
+        this.idUsuario = idUsuario;
+        this.claveUsuario = claveUsuario;
+    }
+
     //Constructor vacio
     public Alumno() {
     }
 
     //Setters y Getters
-    public int getIdAlumno() {
+    public String getIdAlumno() {
         return idAlumno;
     }
 
-    public void setIdAlumno(int idAlumno) {
+    public void setIdAlumno(String idAlumno) {
         this.idAlumno = idAlumno;
     }
 
@@ -52,11 +60,20 @@ public class Alumno {
         this.correo = correo;
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+    public String getClaveUsuario() {
+        return claveUsuario;
+    }
+
+    public void setClaveUsuario(String claveUsuario) {
+        this.claveUsuario = claveUsuario;
+    }
 }
+
